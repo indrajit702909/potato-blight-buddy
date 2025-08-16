@@ -41,16 +41,31 @@ const Index = () => {
   const handleImageSelect = async (file: File) => {
     setSelectedImage(file);
     setResults(null);
-    
-    // Simulate API call to FastAPI backend
     setIsLoading(true);
     
-    // Mock API call - replace with actual FastAPI endpoint
-    setTimeout(() => {
-      setResults(mockDiseases);
-      setIsLoading(false);
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const response = await fetch('http://localhost:8000/predict', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to analyze image');
+      }
+      
+      const data = await response.json();
+      setResults(data);
       toast.success("Analysis complete! Check the results below.");
-    }, 3000);
+    } catch (error) {
+      console.error('Error analyzing image:', error);
+      toast.error("Failed to analyze image. Please try again.");
+      setResults(null);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleImageRemove = () => {
