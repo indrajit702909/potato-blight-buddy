@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
+# Potato Disease Detection System
 
-## Project info
+A full-stack application for detecting potato diseases using AI/ML with a React frontend and FastAPI backend.
 
-**URL**: https://lovable.dev/projects/ef557472-e1f1-489a-909f-fbe637b6d7da
+## Project Structure
 
-## How can I edit this code?
+```
+├── frontend/          # React TypeScript frontend
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+├── backend/           # FastAPI Python backend
+│   ├── main.py
+│   ├── requirements.txt
+│   └── README.md
+└── README.md
+```
 
-There are several ways of editing your application.
+## Quick Start
 
-**Use Lovable**
+### Frontend (React)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ef557472-e1f1-489a-909f-fbe637b6d7da) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The frontend will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Backend (FastAPI)
 
-**Use GitHub Codespaces**
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python main.py
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The backend API will be available at `http://localhost:8000`
 
-## What technologies are used for this project?
+## Features
 
-This project is built with:
+- **Image Upload**: Drag-and-drop or click to upload potato leaf images
+- **AI Analysis**: Machine learning model analyzes images for disease detection
+- **Disease Information**: Detailed results with confidence scores and treatment recommendations
+- **Responsive Design**: Works on desktop and mobile devices
+- **Real-time Results**: Instant analysis and feedback
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Technology Stack
 
-## How can I deploy this project?
+### Frontend
+- React 18 with TypeScript
+- Vite for fast development
+- Tailwind CSS for styling
+- shadcn/ui components
+- React Query for state management
 
-Simply open [Lovable](https://lovable.dev/projects/ef557472-e1f1-489a-909f-fbe637b6d7da) and click on Share -> Publish.
+### Backend
+- FastAPI for high-performance API
+- Python with machine learning libraries
+- Image processing with PIL
+- CORS enabled for cross-origin requests
 
-## Can I connect a custom domain to my Lovable project?
+## Development
 
-Yes, you can!
+### Frontend Development
+```bash
+cd frontend
+npm run dev     # Start development server
+npm run build   # Build for production
+npm run lint    # Run linting
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Backend Development
+```bash
+cd backend
+python main.py  # Start development server
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Visit `http://localhost:8000/docs` for interactive API documentation.
+
+## API Endpoints
+
+- `GET /` - Root endpoint
+- `GET /health` - Health check
+- `POST /predict` - Upload image for disease prediction
+
+## Model Integration
+
+To integrate your trained model:
+
+1. Place your model file in the `backend/` directory
+2. Update `load_model()` function in `backend/main.py`
+3. Modify `predict_disease()` to use your model's output format
+4. Adjust `preprocess_image()` based on your model's input requirements
+
+## Production Deployment
+
+### Frontend
+Deploy the `frontend/` directory to any static hosting service (Vercel, Netlify, etc.)
+
+### Backend
+Deploy the `backend/` directory to a Python hosting service (Railway, Heroku, AWS, etc.)
+
+Make sure to update the API endpoint in the frontend code to point to your deployed backend URL.
