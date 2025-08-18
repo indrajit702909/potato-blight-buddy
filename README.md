@@ -5,15 +5,14 @@ A full-stack application for detecting potato diseases using AI/ML with a React 
 ## Project Structure
 
 ```
-├── frontend/          # React TypeScript frontend
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.ts
+├── src/               # React TypeScript frontend source
+├── public/            # Static assets
 ├── backend/           # FastAPI Python backend
 │   ├── main.py
 │   ├── requirements.txt
 │   └── README.md
+├── package.json       # Frontend dependencies
+├── vite.config.ts     # Frontend build configuration
 └── README.md
 ```
 
@@ -22,7 +21,6 @@ A full-stack application for detecting potato diseases using AI/ML with a React 
 ### Frontend (React)
 
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
@@ -68,7 +66,6 @@ The backend API will be available at `http://localhost:8000`
 
 ### Frontend Development
 ```bash
-cd frontend
 npm run dev     # Start development server
 npm run build   # Build for production
 npm run lint    # Run linting
@@ -100,7 +97,7 @@ To integrate your trained model:
 ## Production Deployment
 
 ### Frontend
-Deploy the `frontend/` directory to any static hosting service (Vercel, Netlify, etc.)
+Deploy the root directory (excluding `backend/`) to any static hosting service (Vercel, Netlify, etc.)
 
 ### Backend
 Deploy the `backend/` directory to a Python hosting service (Railway, Heroku, AWS, etc.)

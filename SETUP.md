@@ -2,18 +2,17 @@
 
 ## Project Structure Created
 
-Your project has been restructured into separate frontend and backend folders:
+Your project now has a separate backend folder while keeping the frontend in the root:
 
 ```
-├── frontend/          # React frontend (moved from root)
-│   ├── src/          # All React components and assets
-│   ├── public/       # Static assets
-│   ├── package.json  # Frontend dependencies
-│   └── *.config.*    # Frontend configuration files
+├── src/              # React components and assets (frontend)
+├── public/           # Static assets (frontend)  
 ├── backend/          # FastAPI backend (newly created)
 │   ├── main.py       # FastAPI server with CORS enabled
 │   ├── requirements.txt  # Python dependencies
 │   └── README.md     # Backend setup instructions
+├── package.json      # Frontend dependencies
+├── vite.config.ts    # Frontend configuration
 └── README.md         # Updated project documentation
 ```
 
@@ -21,7 +20,6 @@ Your project has been restructured into separate frontend and backend folders:
 
 ### 1. Frontend Setup
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
